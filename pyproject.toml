@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "first-ai-grounded-agent"
-version = "0.2.0"
+version = "0.2.1"
 description = "Arabic-first grounded AI agent with NVIDIA NIM, bounded tools, retrieval, research orchestration, and validation."
 readme = "README.md"
 requires-python = ">=3.12"
@@ -22,9 +22,15 @@ classifiers = [
 ]
 dependencies = []
 
+[project.scripts]
+first-ai = "first_ai.__main__:main"
+
 [project.urls]
 Repository = "https://github.com/4hessa/first-ai-grounded-agent"
 Documentation = "https://github.com/4hessa/first-ai-grounded-agent#readme"
 
 [tool.setuptools]
 packages = ["first_ai"]
+
+[tool.setuptools.package-data]
+first_ai = ["data/*.json", "data/knowledge/*.md"]

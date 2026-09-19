@@ -8,6 +8,9 @@ venv/
 .ruff_cache/
 .coverage
 htmlcov/
+build/
+dist/
+*.egg-info/
 
 # Secrets and local environment
 .env

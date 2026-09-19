@@ -3,4 +3,4 @@
 The package is not a sandbox and is not an NVIDIA product.
 """
 
-__version__ = "0.2.0"
+__version__ = "0.2.1"

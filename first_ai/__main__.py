@@ -15,6 +15,20 @@ from .knowledge import Corpus
 from .storage import AppError, Store, read_json
 
 ROOT = Path(__file__).resolve().parent.parent
+PACKAGED_ROOT = Path(__file__).resolve().parent / "data"
+
+
+def data_root():
+    return ROOT if (ROOT / "config.json").is_file() and (ROOT / "knowledge").is_dir() else PACKAGED_ROOT
+
+
+def state_root():
+    override = os.environ.get("FIRST_AI_STATE_DIR")
+    if override:
+        return Path(override).expanduser()
+    if data_root() == ROOT:
+        return ROOT / "state"
+    return Path.home() / ".first_ai" / "state"
 PROGRESS_LOCK = Lock()
 
 
@@ -82,7 +96,7 @@ class DemoClient:
 
 def main():
     parser = argparse.ArgumentParser(description="مساعد تعليمي مبني على أنماط دورة إنفيديا")
-    parser.add_argument("--config", type=Path, default=ROOT / "config.json")
+    parser.add_argument("--config", type=Path, default=data_root() / "config.json")
     sub = parser.add_subparsers(dest="command", required=True)
     sub.add_parser("doctor", help="فحص المتطلبات دون اتصال")
     sub.add_parser("demo", help="عرض ثابت للحلقة دون نموذج أو مفتاح")
@@ -98,7 +112,7 @@ def main():
     notes.add_argument("value", nargs="?")
     args = parser.parse_args()
     cfg = validate_config(read_json(args.config))
-    corpus = Corpus(ROOT / "knowledge")
+    corpus = Corpus(data_root() / "knowledge")
     if args.command == "doctor":
         print("إصدار المساعد:", __version__)
         print("نظام بيئة التشغيل الحالية:")
@@ -117,7 +131,7 @@ def main():
         print("عرض تعليمي ثابت دون شبكة. هذه الاستجابة ليست صادرة عن نموذج ذكاء اصطناعي.")
         show(Agent(DemoClient(), corpus, cfg).run("احسب مجموع اثني عشر وثمانية، ثم اقسمه على أربعة."))
         return
-    store = Store(ROOT / "state")
+    store = Store(state_root())
     if args.command == "notes":
         if args.action == "list":
             items = store.notes()

@@ -8,9 +8,14 @@ on:
 permissions:
   contents: read
 
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
 jobs:
   test:
     runs-on: ubuntu-latest
+    timeout-minutes: 10
     strategy:
       fail-fast: false
       matrix:
@@ -19,6 +24,8 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          persist-credentials: false
 
       - name: Set up Python
         uses: actions/setup-python@v5
@@ -27,3 +34,12 @@ jobs:
 
       - name: Run offline quality gate
         run: python scripts/quality_gate.py
+
+      - name: Install package
+        run: python -m pip install .
+
+      - name: Smoke test installed CLI outside the source tree
+        shell: bash
+        run: |
+          cd "${RUNNER_TEMP}"
+          first-ai doctor
