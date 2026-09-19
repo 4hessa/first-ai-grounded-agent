@@ -1,0 +1,30 @@
+[build-system]
+requires = ["setuptools>=70"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "first-ai-grounded-agent"
+version = "0.2.0"
+description = "Arabic-first grounded AI agent with NVIDIA NIM, bounded tools, retrieval, research orchestration, and validation."
+readme = "README.md"
+requires-python = ">=3.12"
+license = {text = "Apache-2.0"}
+authors = [
+  {name = "Hessa Ahmed Alzahrani"}
+]
+keywords = ["ai-agent", "nvidia-nim", "rag", "arabic", "agentic-ai", "retrieval"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Programming Language :: Python :: 3.12",
+  "Programming Language :: Python :: 3.13",
+  "License :: OSI Approved :: Apache Software License",
+  "Operating System :: OS Independent",
+]
+dependencies = []
+
+[project.urls]
+Repository = "https://github.com/4hessa/first-ai-grounded-agent"
+Documentation = "https://github.com/4hessa/first-ai-grounded-agent#readme"
+
+[tool.setuptools]
+packages = ["first_ai"]

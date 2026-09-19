@@ -1,0 +1,9 @@
+FirstAI Grounded Agent
+
+Copyright 2026 Hessa Ahmed Alzahrani
+
+This independent educational portfolio project was developed while studying concepts presented in NVIDIA DLI's "Securing Agents with OpenShell and NemoClaw" course and the public NVIDIA NemoClawDLI materials.
+
+The NVIDIA DLI course repository is distributed under the Apache License 2.0. NVIDIA, NemoClaw, OpenShell, NIM, Nemotron, and related names may be trademarks or product names of their respective owners. This project is not an NVIDIA product, endorsement, certification, or official course deliverable.
+
+The project calls external NVIDIA model services when configured to do so. Model availability, licensing, quotas, and provider terms are governed by NVIDIA's current service and model terms.
