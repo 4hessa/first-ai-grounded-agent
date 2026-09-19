@@ -1,0 +1,16 @@
+{
+  "provider": "nvidia",
+  "retrieval": "keyword",
+  "model": "nvidia/nemotron-3-super-120b-a12b",
+  "embedding_model": "nvidia/llama-nemotron-embed-vl-1b-v2",
+  "max_model_calls": 6,
+  "max_output_tokens": 1200,
+  "timeout_seconds": 60,
+  "max_question_chars": 4000,
+  "max_context_chars": 48000,
+  "temperature": 1.0,
+  "top_p": 0.95,
+  "chat_template_kwargs": {
+    "enable_thinking": false
+  }
+}
