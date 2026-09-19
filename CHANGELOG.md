@@ -1,5 +1,17 @@
 # Changelog
 
+## 0.2.1 - 2026-09-19
+
+Packaging and CI hardening release.
+
+- Added an installable `first-ai` console command.
+- Bundled the safe default configuration and sample knowledge corpus for installed-package use.
+- Moved installed runtime state to a per-user directory instead of relying on writes inside `site-packages`.
+- Added the `FIRST_AI_STATE_DIR` environment override for installed runtime state.
+- Added package-data synchronization checks to the offline quality gate.
+- Added installed-package smoke testing to CI on Python 3.12 and 3.13.
+- Added a repository line-ending policy and ignored local build artifacts.
+
 ## 0.2.0 - 2026-09-19
 
 Portfolio hardening release.
