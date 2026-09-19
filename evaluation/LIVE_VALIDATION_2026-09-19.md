@@ -7,7 +7,7 @@ These notes distinguish live provider observations from deterministic local test
 - Windows host
 - Python 3.13.14
 - Direct NVIDIA provider mode
-- Core application version 0.1.5 plus language-repair hardening patches later incorporated into the 0.2.0 portfolio tree
+- Core application version 0.1.5 plus language-repair hardening patches later incorporated into the 0.2.x portfolio tree
 - Runtime-isolation tools reported absent by `doctor`: NemoClaw, OpenShell, Docker
 
 ## Grounded retrieval observation
@@ -30,4 +30,4 @@ One separately submitted prompt received HTTP status 500 from the remote service
 
 ## Claim boundary
 
-The 0.2.0 portfolio tree is validated offline by the deterministic 108-test suite. The live observations above validate the same core execution and language-repair paths from the development build, but they are not a formal benchmark of model quality, availability, runtime isolation, or the current provider service.
+The 0.2.1 portfolio tree is validated offline by the deterministic 108-test suite and an installed-package smoke test. The live observations above validate the same core execution and language-repair paths from the development build, but they are not a formal benchmark of model quality, availability, runtime isolation, or the current provider service.
